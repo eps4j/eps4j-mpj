@@ -1,0 +1,44 @@
+#+STARTUP: overview hidestars logdone
+#+COLUMNS: %38ITEM(Details) %7TODO(To Do) %TAGS(Context) 
+#+OPTIONS: tags:t timestamp:t todo:t TeX:t LaTeX:t          
+#+OPTIONS: skip:t @:t ::t |:t ^:t f:t
+#+TITLE:  EPS4J : Embarrassingly Parallel Search for Java
+#+LANGUAGE: en
+* EPS4J
+
+eps4j is a Java library that proposes a framework for using Embarrassingly Parallel Search in constraints solvers.
+eps4j-core defines the communication architecture. 
+
+eps4j-core is distributed under BSD 3-Clause License (Copyright (c) 2017, Arnaud Malapert, Université Nice Sophia Antipolis). 
+ 
+* PREREQUISITES 
+ This project works on 32 bits and 64 bits environment. 
+
+ This project requires:
+
+ - Java Virtual Machine 1.8+ 
+ - Apache Maven 3.2.3+
+ - MPJ Express Project
+
+* BUILDING
+ 
+  This project uses the Cross-platform Maven build system. 
+:      mvn package 
+ or to skip junit tests
+:      mvn package -Dmaven.test.skip=true  
+
+* INSTALLING
+
+  Once the project has been built (see "BUILDING"), execute 
+: mvn install
+
+* EXECUTING 
+
+  Once the project has been installed (see "INSTALLING"), execute 
+  : java -server -jar -Xms512m -Xmx2048m eps4j-${project.version}-jar-with-dependencies.jar
+  
+* DOCUMENTATION
+  
+ Look for the most up-to-date documentation on the web site, or javadoc.
+ 
+ 
