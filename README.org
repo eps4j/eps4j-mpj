@@ -4,41 +4,82 @@
 #+OPTIONS: skip:t @:t ::t |:t ^:t f:t
 #+TITLE:  EPS4J : Embarrassingly Parallel Search for Java
 #+LANGUAGE: en
-* EPS4J
+
+[[https://travis-ci.org/eps4j/eps4j-core][file:https://travis-ci.org/eps4j/eps4j-core.svg?branch=master]]
+* Overview
 
 eps4j is a Java library that proposes a framework for using Embarrassingly Parallel Search in constraints solvers.
 eps4j-core defines the communication architecture. 
 
 eps4j-core is distributed under BSD 3-Clause License (Copyright (c) 2017, Arnaud Malapert, Université Nice Sophia Antipolis). 
- 
-* PREREQUISITES 
- This project works on 32 bits and 64 bits environment. 
 
- This project requires:
-
- - Java Virtual Machine 1.8+ 
- - Apache Maven 3.2.3+
- - MPJ Express Project
-
-* BUILDING
- 
-  This project uses the Cross-platform Maven build system. 
-:      mvn package 
- or to skip junit tests
-:      mvn package -Dmaven.test.skip=true  
-
-* INSTALLING
-
-  Once the project has been built (see "BUILDING"), execute 
-: mvn install
-
-* EXECUTING 
-
-  Once the project has been installed (see "INSTALLING"), execute 
-  : java -server -jar -Xms512m -Xmx2048m eps4j-${project.version}-jar-with-dependencies.jar
-  
-* DOCUMENTATION
+* Documentation, Support and Issues
   
  Look for the most up-to-date documentation on the web site, or javadoc.
  
+ Use the [[https://github.com/eps4j/eps4j-core/issues][issue tracker]] here on GitHub to report issues. 
+ As far as possible, provide a [[https://en.wikipedia.org/wiki/Minimal_Working_Example][Minimal Working Example]].
+
+* Download and Installation
+
+  In the following, we distinguish two usages of eps4j-core:
+    - as a standalone application: the jar file includes all required dependencies,
+    - as a library: the jar file excludes all dependencies.
+
+** Prerequisites 
+  This project works on 32 bits and 64 bits environment. 
+
+  This project requires:
+
+  - Java Virtual Machine 1.8+ 
+  - Apache Maven 3.2.3+
+  - MPJ Express Project 0.44+
+** Inside a maven project
+
+eps4j-core is not (yet) available on Maven Central Repository. 
+First, you must build from source and install it into your local .m2 repository.
+Then, you only have to edit your pom.xml to declare the following library dependency:
+
+#+BEGIN_EXAMPLE
+<dependency>
+   <groupId>org.eps4j</groupId>
+   <artifactId>eps4j-core</artifactId>
+   <version>0.0.1-SNAPSHOT</version>
+</dependency>
+
+#+END_EXAMPLE
+
+** As a stand-alone application
+
+ The jar file contains all required dependencies. 
+ The next step is simply to add the jar file to your classpath of your application. 
+ Note that if your program depends on dependencies declared in the jar file, you should consider using eps4j-core as a library.
+ 
+** As a library
+
+ The jar file does not contains any dependencies, as of being used as a dependency of another application. 
+ The next step is to add the jar file to your classpath of your application and also add the required dependencies.
+
+** Building from source
+ 
+   This project uses the Cross-platform Maven build system. 
+ :      mvn clean package 
+  or to skip unit tests
+ :      mvn clean package -DskipTests=true  
+
+*** Installing
+
+    Once the project has been built, execute 
+  : mvn install
+** Dependencies
+
+   The required dependencies for compilation are:
+    #+BEGIN_SRC sh :results output :exports results
+      mvn dependency\:list -DexcludeTransitive=true
+    #+END_SRC
+
+    #+RESULTS:
+    :org.testng:testng:jar:6.9.10:test
+
+   They are available on Maven Repository (http://mvnrepository.com/).
  
