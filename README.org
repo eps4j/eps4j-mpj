@@ -2,11 +2,10 @@
 #+COLUMNS: %38ITEM(Details) %7TODO(To Do) %TAGS(Context) 
 #+OPTIONS: tags:t timestamp:t todo:t TeX:t LaTeX:t          
 #+OPTIONS: skip:t @:t ::t |:t ^:t f:t
-#+TITLE:  EPS4J : Embarrassingly Parallel Search for Java
 #+LANGUAGE: en
+* EPS4J: Embarrassingly Parallel Search for Java
 
 [[https://travis-ci.org/eps4j/eps4j-core][file:https://travis-ci.org/eps4j/eps4j-core.svg?branch=master]]
-* Overview
 
 eps4j is a Java library that proposes a framework for using Embarrassingly Parallel Search in constraints solvers.
 eps4j-core defines the communication architecture. 
@@ -63,10 +62,10 @@ Then, you only have to edit your pom.xml to declare the following library depend
 ** Building from source
  
    This project uses the Cross-platform Maven build system. 
- :      mvn clean package 
-  or to skip unit tests
- :      mvn clean package -DskipTests=true  
-
+   : mvn clean package 
+   or to skip unit tests
+   : mvn clean package -DskipTests=true  
+   
 *** Installing
 
     Once the project has been built, execute 
@@ -79,7 +78,7 @@ Then, you only have to edit your pom.xml to declare the following library depend
     #+END_SRC
 
     #+RESULTS:
-    :org.testng:testng:jar:6.9.10:test
+    : org.testng:testng:jar:6.9.10:test
 
    They are available on Maven Repository (http://mvnrepository.com/).
  
