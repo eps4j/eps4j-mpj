@@ -8,12 +8,18 @@
  */
 package org.eps4j;
 
+import mpi.MPI;
+
 public class HelloWorld {
 
     public HelloWorld() {}
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        MPI.Init(args);
+        int me = MPI.COMM_WORLD.Rank();
+        int size = MPI.COMM_WORLD.Size();
+        System.out.println("Hi from <"+me+">");
+        MPI.Finalize();
     }
 
 }

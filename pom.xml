@@ -46,10 +46,18 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.build.timestamp.format>yyyy</maven.build.timestamp.format>
-    </properties>
-
+        <mpj.home>${env.MPJ_HOME}</mpj.home>
+	</properties>
+	
     <dependencies>
-        <dependency>
+	<dependency>
+		<groupId>org.mpjexpress</groupId>
+		<artifactId>mpj</artifactId>
+		<version>0.44</version>
+		<scope>system</scope>
+		<systemPath>${mpj.home}/lib/mpj.jar</systemPath>
+	</dependency>
+		<dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>6.9.10</version>
