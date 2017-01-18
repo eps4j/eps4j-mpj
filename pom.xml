@@ -121,7 +121,40 @@
     <!--         </build> -->
     <!--     </profile> -->
     <!-- </profiles> -->
-
+    <profiles> 
+      <profile>
+        <id>test-bats</id>
+        <activation>
+          <!-- <activeByDefault>true</activeByDefault>  -->
+          <property>
+            <name>!skipTests</name>
+          </property>
+        </activation>
+        <build>
+          <plugins>
+            <plugin>
+              <groupId>org.codehaus.mojo</groupId>
+              <artifactId>exec-maven-plugin</artifactId>
+              <executions>
+                <execution>
+                  <id>test-bats</id>
+                  <phase>package</phase>
+                  <goals>
+                    <goal>exec</goal>
+                  </goals>
+                </execution>
+              </executions>
+              <configuration>
+                <executable>bats</executable>
+                <arguments>
+                  <argument>src/test/bats</argument>
+                </arguments>
+              </configuration>
+            </plugin>
+          </plugins>
+        </build>
+      </profile>
+    </profiles> 
     <build>
         <plugins>
             <plugin>
@@ -202,6 +235,14 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>2.5</version>
+                <executions>
+                  <execution>
+                    <goals>
+                      <goal>jar</goal>
+                      <goal>test-jar</goal>
+                    </goals>
+                  </execution>
+                </executions>
                 <configuration>
                     <archive>
                         <manifest>
