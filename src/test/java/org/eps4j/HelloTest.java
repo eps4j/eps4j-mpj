@@ -16,12 +16,12 @@ public class HelloTest{
 
     public HelloTest() {}
 
-    @Test(groups = "1s", timeOut = 60000)
+    @Test(timeOut = 60000)
     public void test1() {
         assertEquals(2, 2);
     }
     
-    @Test(groups = "10s", timeOut = 60000)
+    @Test(timeOut = 60000)
     public void test10() {
         assertEquals(10, 10);
     }

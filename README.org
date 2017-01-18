@@ -32,7 +32,9 @@ eps4j-core is distributed under BSD 3-Clause License (Copyright (c) 2017, Arnaud
 
   - Java Virtual Machine 1.8+ 
   - Apache Maven 3.2.3+
-  - MPJ Express Project 0.44+
+  - [[http://mpj-express.org/][MPJ Express Project]] 0.44+
+  - [[https://github.com/sstephenson/bats][Bats]] (maven install phase only)
+
 ** Inside a maven project
 
 eps4j-core is not (yet) available on Maven Central Repository. 
@@ -69,7 +71,10 @@ Then, you only have to edit your pom.xml to declare the following library depend
 *** Installing
 
     Once the project has been built, execute 
-  : mvn install
+    : mvn install
+    or to skip bats tests
+    : mvn install -DskipTests=true  
+
 ** Dependencies
 
    The required dependencies for compilation are:

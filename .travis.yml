@@ -14,9 +14,9 @@ env:
 #   # OSS SONATYPE
 #   - secure:
 #   - secure:
-  matrix:
-  - GROUP=1s
-  - GROUP=10s
+# matrix:
+# - GROUP=1s
+# - GROUP=10s
   before_install:
 #       - echo -n | openssl s_client -connect scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
   - sudo add-apt-repository ppa:duggan/bats --yes
@@ -79,6 +79,8 @@ notifications:
 #       tags: true
 #       jdk: oraclejdk8
 #       condition: $GROUP = 10s
+script:
+  - mvn verify -B
 
 ####
 # based on: https://dracoblue.net/dev/uploading-snapshots-and-releases-to-maven-central-with-travis/
