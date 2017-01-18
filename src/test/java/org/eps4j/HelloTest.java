@@ -26,5 +26,7 @@ public class HelloTest{
         assertEquals(10, 10);
     }
 
-    
+    public static void main(String[] args) {
+        HelloWorld.main(args);
+    }
 }
