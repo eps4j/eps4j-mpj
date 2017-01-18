@@ -25,7 +25,7 @@ before_install:
   - wget https://downloads.sourceforge.net/project/mpjexpress/releases/mpj-v0_44.zip? -O /tmp/mpj-v0_44.zip
   - unzip /tmp/mpj-v0_44.zip
   - export MPJ_HOME=$PWD/mpj-v0_44/
-  - export PATH=PATH:$MPJ_HOME/bin/
+  - export PATH=$PATH:$MPJ_HOME/bin/
 # install:
 # - npm install travis-ping
 branches:
