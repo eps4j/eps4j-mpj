@@ -85,7 +85,6 @@ notifications:
 #       condition: $GROUP = 10s
 script:
   - mvn verify -B
-
 ####
 # based on: https://dracoblue.net/dev/uploading-snapshots-and-releases-to-maven-central-with-travis/
 ####

@@ -8,25 +8,17 @@
  */
 package org.eps4j;
 
-import static org.testng.Assert.assertEquals;
-
-import org.testng.annotations.Test;
+import mpi.MPI;
 
 public class HelloTest{
 
     public HelloTest() {}
 
-    @Test(timeOut = 60000)
-    public void test1() {
-        assertEquals(2, 2);
-    }
-    
-    @Test(timeOut = 60000)
-    public void test10() {
-        assertEquals(10, 10);
-    }
-
     public static void main(String[] args) {
-        HelloWorld.main(args);
+        MPI.Init(args);
+        int me = MPI.COMM_WORLD.Rank();
+        //int size = MPI.COMM_WORLD.Size();
+        System.out.println("Hi from <"+me+">");
+        MPI.Finalize();
     }
 }

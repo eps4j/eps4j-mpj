@@ -33,7 +33,7 @@ eps4j-core is distributed under BSD 3-Clause License (Copyright (c) 2017, Arnaud
   - Java Virtual Machine 1.8+ 
   - Apache Maven 3.2.3+
   - [[http://mpj-express.org/][MPJ Express Project]] 0.44+
-  - [[https://github.com/sstephenson/bats][Bats]] (maven install phase only)
+  - [[https://github.com/sstephenson/bats][Bats]] (for integration tests only)
 
 ** Inside a maven project
 
@@ -67,23 +67,32 @@ Then, you only have to edit your pom.xml to declare the following library depend
    : mvn clean package 
    or to skip unit tests
    : mvn clean package -DskipTests=true  
+
+*** Integration tests 
+    Run integration tests (require bats) 
+    : mvn verify 
    
 *** Installing
 
-    Once the project has been built, execute 
+    Once the project has been built, execute   
     : mvn install
-    or to skip bats tests
+    or to skip all tests (unit and integration) 
     : mvn install -DskipTests=true  
 
 ** Dependencies
 
    The required dependencies for compilation are:
     #+BEGIN_SRC sh :results output :exports results
-      mvn dependency\:list -DexcludeTransitive=true
+      ## must update the line ranges when the dependencies change.
+      mvn dependency\:list -DexcludeTransitive=true | sed -n '10,14 s/\[INFO\]\s*//p'  
     #+END_SRC
 
     #+RESULTS:
     : org.testng:testng:jar:6.9.10:test
+    : args4j:args4j:jar:2.33:test
+    : org.choco-solver:pf4cs:jar:1.0.5:compile
+    : org.choco-solver:cutoffseq:jar:1.0.2:compile
+    : org.mpjexpress:mpj:jar:0.44:system
 
-   They are available on Maven Repository (http://mvnrepository.com/).
+   They are available on Maven Repository (http://mvnrepository.com/) with the exception of MPJ.
  
